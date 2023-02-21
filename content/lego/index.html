@@ -1,0 +1,369 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+    <title>Bill Kratzer</title>
+</head>
+<body class="bg-gray-900">
+<div class="px-6 lg:px-8 bg-gradient-to-br from-yellow-300 via-yellow-500 to-yellow-400">
+    <div class="grid grid-cols-2 text-yellow-800 pt-2">
+        <div class="text-left text-md">
+            <a class="hover:text-yellow-700 hover:font-bold" href="/">Home</a>
+        </div>
+        <div class="text-right">
+            <a class="hover:text-yellow-700 hover:font-bold ml-4" href="/work">Work</a>
+            <a class="hover:text-yellow-700 hover:font-bold ml-4" href="/projects">Projects</a>
+            <a class="hover:text-yellow-700 hover:font-bold ml-4" href="/lego">LEGO</a>
+            <a class="hover:text-yellow-700 hover:font-bold ml-4" href="/art">AI Art</a>
+            <a class="hover:text-yellow-700 hover:font-bold ml-4" href="/ac">Animal Crossing</a>
+            <a class="hover:text-yellow-700 hover:font-bold ml-4" href="/about">About</a>
+        </div>
+    </div>
+    <div class="py-18 sm:py-24 mx-auto max-w-2xl text-center">
+        <h2 class="text-3xl font-bold tracking-tight text-white sm:text-9xl">LEGO</h2>
+        <p class="mt-6 text-lg leading-8 text-yellow-700">
+            Bricks. Studs. Awesomeness.
+        </p>
+    </div>
+</div>
+<div>
+
+</div>
+<div class="bg-gradient-to-b from-yellow-50 to-white border-top border-t-8">
+    <div class="mx-auto max-w-3xl text-left h-screen text-slate-700">
+        <p class="mt-4">
+            I love Lego. While many of my hobbies are virtual in nature, Lego is my one big hobby that lets me work and play in the physical world.
+        </p>
+        <div>
+            <h2 class="mt-6 text-md font-bold tracking-tight">Town House</h2>
+            <p class="mt-0 text-sm leading-2">While I love working with physical bricks with my hands, I quite often do not have enough real bricks to build the types of projects that I would love to build. Enter the world of Lego 3D Modeling on the computer. The excellent Lego Studio application lets you build real Lego models in the virtual world! My first project was to build a model of our town house!</p>
+            <p class="mt-4 text-sm">Pics: <a href="javascript:show_lego_home_gallery();" class="underline">View Gallery</a></p>
+        </div>
+        <div>
+            <h2 class="mt-6 text-md font-bold tracking-tight">Pac-Man 8-Bit Art</h2>
+            <p class="mt-0 text-sm leading-2">Recreations of the iconic 8-bit graphics of Pac-Man in Lego!</p>
+            <p class="mt-4 text-sm">Pics: <a href="javascript:show_pac_man_gallery();" class="underline">View Gallery</a></p>
+        </div>
+        <div>
+            <h2 class="mt-6 text-md font-bold tracking-tight">Galaga 8-Bit Art</h2>
+            <p class="mt-0 text-sm leading-2">Recreations of the iconic 8-bit graphics of Galaga in Lego!</p>
+            <p class="mt-4 text-sm">Pics: <a href="javascript:show_galaga_gallery();" class="underline">View Gallery</a></p>
+        </div>
+        <div>
+            <h2 class="mt-6 text-md font-bold tracking-tight">Donkey Kong Jr. 8-Bit Art</h2>
+            <p class="mt-0 text-sm leading-2">Recreations of the iconic 8-bit graphics of Donkey Kong Junior in Lego!</p>
+            <p class="mt-4 text-sm">Pics: <a href="javascript:show_donkey_kong_jr_gallery();" class="underline">View Gallery</a></p>
+        </div>
+        <div>
+            <h2 class="mt-6 text-md font-bold tracking-tight">Robotron 8-Bit Art</h2>
+            <p class="mt-0 text-sm leading-2">Recreations of the iconic 8-bit graphics of Robotron (the best video game ever!) in Lego!</p>
+            <p class="mt-4 text-sm">Pics: <a href="javascript:show_robotron_gallery();" class="underline">View Gallery</a></p>
+        </div>
+        <div>
+            <h2 class="mt-6 text-md font-bold tracking-tight">Q*bert 8-Bit Art</h2>
+            <p class="mt-0 text-sm leading-2">Recreations of the iconic 8-bit graphics of Q*bert in Lego!</p>
+            <p class="mt-4 text-sm">Pics: <a href="javascript:show_qbert_gallery();" class="underline">View Gallery</a></p>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    function getRandomLegoSets() {
+        var size = minifigImageUrls.length;
+        for (var i = 0; i < 20; i++) {
+            var randomIndex = Math.floor(Math.random() * size);
+            populateSet(minifigImageUrls[randomIndex]);
+        }
+    }
+
+    function populateSet(imageUrl) {
+        $( '#minifigs' ).append( '<div class="minifig"><img class="minifig_thumb" src="' + imageUrl + '"/></div>' )
+    }
+
+    var minifigImageUrls = []
+    $(document).ready(function(){
+        getRandomLegoSets()
+    })
+
+    function show_pac_man_gallery() {
+        $.fancybox.open([
+            {
+                src  : '/image/lego/pacman/blinky.png',
+                opts : {
+                    caption : 'Blinky',
+                    thumb   : '/image/lego/pacman/blinky_thumb.png'
+                }
+            },
+            {
+                src  : '/image/lego/pacman/pinky.png',
+                opts : {
+                    caption : 'Pinky',
+                    thumb   : '/image/lego/pacman/pinky_thumb.png'
+                }
+            },
+            {
+                src  : '/image/lego/pacman/inky.png',
+                opts : {
+                    caption : 'Inky',
+                    thumb   : '/image/lego/pacman/inky_thumb.png'
+                }
+            },
+            {
+                src  : '/image/lego/pacman/clyde.png',
+                opts : {
+                    caption : 'Clyde',
+                    thumb   : '/image/lego/pacman/clyde_thumb.png'
+                }
+            },
+            {
+                src  : '/image/lego/pacman/scared.png',
+                opts : {
+                    caption : 'Scared Ghost',
+                    thumb   : '/image/lego/pacman/scared_thumb.png'
+                }
+            },
+            {
+                src  : '/image/lego/pacman/pac_man.png',
+                opts : {
+                    caption : 'Pac-Man',
+                    thumb   : '/image/lego/pacman/pac_man_thumb.png'
+                }
+            },
+            {
+                src  : '/image/lego/pacman/cherry.png',
+                opts : {
+                    caption : 'Pac-Man',
+                    thumb   : '/image/lego/pacman/cherry_thumb.png'
+                }
+            },
+            {
+                src  : '/image/lego/pacman/cherry.png',
+                opts : {
+                    caption : 'Pac-Man',
+                    thumb   : '/image/lego/pacman/cherry_thumb.png'
+                }
+            },
+            {
+                src  : '/image/lego/pacman/strawberry.png',
+                opts : {
+                    caption : 'Pac-Man',
+                    thumb   : '/image/lego/pacman/strawberry_thumb.png'
+                }
+            },
+            {
+                src  : '/image/lego/pacman/orange.png',
+                opts : {
+                    caption : 'Pac-Man',
+                    thumb   : '/image/lego/pacman/orange_thumb.png'
+                }
+            },
+            {
+                src  : '/image/lego/pacman/apple.png',
+                opts : {
+                    caption : 'Pac-Man',
+                    thumb   : '/image/lego/pacman/apple_thumb.png'
+                }
+            },
+            {
+                src  : '/image/lego/pacman/galaxian.png',
+                opts : {
+                    caption : 'Pac-Man',
+                    thumb   : '/image/lego/pacman/galaxian_thumb.png'
+                }
+            }
+        ], {
+            loop : false
+        });
+    }
+
+    function show_galaga_gallery() {
+        $.fancybox.open([
+            {
+                src  : '/image/lego/galaga/player_ship.png',
+                opts : {
+                    caption : 'Player Spaceship',
+                    thumb   : '/image/lego/galaga/player_ship_thumb.png'
+                }
+            },
+            {
+                src  : '/image/lego/galaga/alien1.png',
+                opts : {
+                    caption : 'Alien Ship',
+                    thumb   : '/image/lego/galaga/alien1_thumb.png'
+                }
+            },
+            {
+                src  : '/image/lego/galaga/alien2.png',
+                opts : {
+                    caption : 'Alien Ship',
+                    thumb   : '/image/lego/galaga/alien2_thumb.png'
+                }
+            },
+            {
+                src  : '/image/lego/galaga/alien3.png',
+                opts : {
+                    caption : 'Alien Ship',
+                    thumb   : '/image/lego/galaga/alien3_thumb.png'
+                }
+            },
+            {
+                src  : '/image/lego/galaga/alien4.png',
+                opts : {
+                    caption : 'Alien Ship',
+                    thumb   : '/image/lego/galaga/alien4_thumb.png'
+                }
+            },
+            {
+                src  : '/image/lego/galaga/alien5.png',
+                opts : {
+                    caption : 'Alien Ship',
+                    thumb   : '/image/lego/galaga/alien5_thumb.png'
+                }
+            },
+            {
+                src  : '/image/lego/galaga/alien6.png',
+                opts : {
+                    caption : 'Alien Ship',
+                    thumb   : '/image/lego/galaga/alien6_thumb.png'
+                }
+            }
+        ], {
+            loop : false
+        });
+    }
+
+    function show_donkey_kong_jr_gallery() {
+        $.fancybox.open([
+            {
+                src  : '/image/lego/donkey_kong_jr/donkey_kong.png',
+                opts : {
+                    caption : 'Donkey Kong',
+                    thumb   : '/image/lego/donkey_kong_jr/donkey_kong_thumb.png'
+                }
+            },
+            {
+                src  : '/image/lego/donkey_kong_jr/donkey_kong_jr.png',
+                opts : {
+                    caption : 'Donkey Kong Jr.',
+                    thumb   : '/image/lego/donkey_kong_jr/donkey_kong_jr_thumb.png'
+                }
+            },
+            {
+                src  : '/image/lego/donkey_kong_jr/mario.png',
+                opts : {
+                    caption : 'Mario',
+                    thumb   : '/image/lego/donkey_kong_jr/mario_thumb.png'
+                }
+            },
+            {
+                src  : '/image/lego/donkey_kong_jr/red_trap.png',
+                opts : {
+                    caption : 'Red Trap guy',
+                    thumb   : '/image/lego/donkey_kong_jr/red_trap_thumb.png'
+                }
+            },
+            {
+                src  : '/image/lego/donkey_kong_jr/blue_trap.png',
+                opts : {
+                    caption : 'Blue Trap Guy',
+                    thumb   : '/image/lego/donkey_kong_jr/blue_trap_thumb.png'
+                }
+            },
+            {
+                src  : '/image/lego/donkey_kong_jr/purple_bird.png',
+                opts : {
+                    caption : 'Birdie',
+                    thumb   : '/image/lego/donkey_kong_jr/purple_bird_thumb.png'
+                }
+            }
+        ], {
+            loop : false
+        });
+    }
+
+    function show_robotron_gallery() {
+        $.fancybox.open([
+            {
+                src  : '/image/lego/robotron/player.png',
+                opts : {
+                    caption : 'Player',
+                    thumb   : '/image/lego/robotron/player_thumb.png'
+                }
+            },
+            {
+                src  : '/image/lego/robotron/basic_enemy.png',
+                opts : {
+                    caption : 'Basic Enemy Robot',
+                    thumb   : '/image/lego/robotron/basic_enemy_thumb.png'
+                }
+            },
+            {
+                src  : '/image/lego/robotron/brain.png',
+                opts : {
+                    caption : 'Brain',
+                    thumb   : '/image/lego/robotron/brain_thumb.png'
+                }
+            },
+            {
+                src  : '/image/lego/robotron/tank.png',
+                opts : {
+                    caption : 'Tank',
+                    thumb   : '/image/lego/robotron/tank_thumb.png'
+                }
+            },
+            {
+                src  : '/image/lego/robotron/family1.png',
+                opts : {
+                    caption : 'Family 1',
+                    thumb   : '/image/lego/robotron/family1_thumb.png'
+                }
+            },
+            {
+                src  : '/image/lego/robotron/family2.png',
+                opts : {
+                    caption : 'Family 2',
+                    thumb   : '/image/lego/robotron/family2_thumb.png'
+                }
+            }
+        ], {
+            loop : false
+        });
+    }
+
+    function show_qbert_gallery() {
+        $.fancybox.open([
+            {
+                src  : '/image/lego/qbert/qbert.png',
+                opts : {
+                    caption : 'Q*bert',
+                    thumb   : '/image/lego/qbert/qbert_thumb.png'
+                }
+            }
+        ], {
+            loop : false
+        });
+    }
+
+    function show_lego_home_gallery() {
+        $.fancybox.open([
+            {
+                src  : '/image/lego/home/home.png',
+                opts : {
+                    caption : 'Lego Town House',
+                    thumb   : '/image/lego/home/home_thumb.png'
+                }
+            }
+        ], {
+            loop : false
+        });
+    }
+
+</script>
+</body>
+</html>
