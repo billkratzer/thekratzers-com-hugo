@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Bill Kratzer</title>
+</head>
+<body class="bg-gray-900">
+<div class="px-6 lg:px-8 bg-black" style="background-image: url('/image/pacman/banner.png');">
+    <div class="grid grid-cols-2 text-slate-200 pt-2">
+        <div class="text-left text-md">
+            <a class="hover:text-white hover:font-bold" href="/">Home</a>
+        </div>
+        <div class="text-right">
+            <a class="hover:text-white hover:font-bold ml-4" href="/work">Work</a>
+            <a class="hover:text-white hover:font-bold ml-4" href="/projects">Projects</a>
+            <a class="hover:text-white hover:font-bold ml-4" href="/lego">LEGO</a>
+            <a class="hover:text-white hover:font-bold ml-4" href="/art">AI Art</a>
+            <a class="hover:text-white hover:font-bold ml-4" href="/ac">Animal Crossing</a>
+            <a class="hover:text-white hover:font-bold ml-4" href="/about">About</a>
+        </div>
+    </div>
+    <div class="py-18 sm:py-24 mx-auto max-w-6xl text-center">
+        <h2 class="text-3xl font-bold text-yellow-300 tracking-tight text-white sm:text-9xl">PAC-MAN</h2>
+        <p class="mt-6 text-lg leading-8 text-gray-300">
+            I've Got Pac-Man Fever, and it's drivin' me crazy.
+        </p>
+    </div>
+</div>
+<div class="bg-gradient-to-b from-pink-100 to-pink-50 border-top border-t-8">
+    <div class="mt-2 mx-auto px-24 max-w-6xl h-screen text-slate-700">
+        <p class="mt-4">
+            Here's another collection of Lego Pac-Man digital art smashed up with AI style transfers.
+        </p>
+        <h1 class="mt-4 mb-4 text-4xl font-bold tracking-tight">Random PAC-MAN Pictures</h1>
+        <div id="pic_container">
+            <div id="click_blurb">Click picture to see more!</div>
+            <img id="random_pic" class="grayscale" src="/image/pacman/montage.png"/>
+        </div>
+    </div>
+</div>
+
+<script>
+    var captions = []
+
+    $(document).ready(function() {
+
+        $("#random_pic").hover(function() {
+            $(this).removeClass("grayscale")
+        }, function(){
+            $(this).addClass("grayscale")
+        })
+
+        $("#random_pic").click(function() {
+            getRandomPic();
+        })
+    })
+
+    function getRandomPic() {
+        let index = Math.floor(Math.random() * 42);
+        let imageNumber = index + 1;
+        let url = "/image/pacman/pacman_" + imageNumber + ".jpg";
+        $("#random_pic").attr("src", url);
+    }
+</script>
+</body>
+</html>
